@@ -9,7 +9,7 @@ http.createServer( function (request, reponse) {
    var pathname = url.parse(request.url).pathname;
    
    for (p in request){
-      console.lon('request =' +p);
+      console.log('request =' +p);
    }
  
    console.log("request.url = " + request.url)
