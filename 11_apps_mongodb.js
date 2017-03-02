@@ -16,10 +16,6 @@ MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) 
   })
 })
 
-
-
-
-
 app.get('/',  (req, res) => {
    console.log('la route route get / = ' + req.url)
  
