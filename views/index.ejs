@@ -24,10 +24,12 @@
       <span><%= adresse[i].telephone %></span>
       <span><%= adresse[i].ville %></span>
       <span><%= adresse[i].codePostal %></span>
-      <button>DELETE</button>
+      <button id='modifier'>MODIFIER</button>
+      <a href="detruire/<%= adresse[i]._id %>">DETRUIRE</a>
     </li>
   <% } %>
   </ul>
+
   <script type="text/javascript" src="modifier_adresse.js"></script>
 
 </body>
