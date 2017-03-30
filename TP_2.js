@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express();
+const ObjectID = require('mongodb').ObjectID;
 app.set('view engine', 'ejs'); // générateur de template «ejs»
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))  // pour utiliser le dossier public
@@ -45,8 +46,13 @@ app.post('/adresse',  (req, res) => {
     })
 })
 
-app.get('/adresse.telephone',  (req, res) =>{
-  db.collection('telephone').findOneAndDelete()
+app.get('/detruire/:id', (req, res) => {
+ var id = req.params.id
+ console.log(id)
+ db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
-
+if (err) return console.log(err)
+ res.redirect('/')  // redirige vers la route qui affiche la collection
+ })
 })
+
