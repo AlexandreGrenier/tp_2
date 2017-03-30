@@ -2,33 +2,40 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Grenier TP_2</title>
 </head>
 <body>
-  Node.js, Express et MongoDB.
-    <form action="/adresse" method="POST">
-    <input type="text" placeholder="Nom" name="nom">
-    <input type="text" placeholder="Prenom" name="prenom">
-    <input type="text" placeholder="Telephone" name="telephone">
-    <input type="text" placeholder="Ville" name="ville">
-    <input type="text" placeholder="Code Postal" name="codePostal">
-    <button type="submit">Submit</button>
-  </form>
+  <h1>Grenier TP-2</h1>
+    <div action="/adresse" method="POST">
+      <input type="text" placeholder="Nom" name="nom">
+      <input type="text" placeholder="Prenom" name="prenom">
+      <input type="text" placeholder="Telephone" name="telephone">
+      <button type="submit">Ajouter</button>
+    </div>
 
-  <ul class="adresse">
-  <% for(var i=0; i<adresse.length; i++) {%>
-    <li class="client">
-      <span><%= adresse[i].nom %></span>
-      <span><%= adresse[i].prenom %></span>
-      <span><%= adresse[i].telephone %></span>
-      <span><%= adresse[i].ville %></span>
-      <span><%= adresse[i].codePostal %></span>
-      <button id='modifier'>MODIFIER</button>
-      <a href="detruire/<%= adresse[i]._id %>">DETRUIRE</a>
-    </li>
-  <% } %>
-  </ul>
-
+  <div class="container-fluid">
+    <div class="table-row header">
+          <div class="nom">Nom</div>
+          <div class="prenom">Prénom</div>
+          <div class="telephone">Téléphone</div>
+          <div class="idMongo">_id</div>
+          <div class="modifier">MODIFIER</div>
+          <div class="detruire">DETRUIRE</div>
+    </div>
+    <% for(var i=0; i<adresse.length; i++) {%>
+      <div class="table-row">
+        <div class="nom" contentEditable="true"><%= adresse[i].nom %></div>
+        <div class="prenom" contentEditable="true"><%= adresse[i].prenom %></div>
+        <div class="telephone" contentEditable="true"><%= adresse[i].telephone %></div>
+        <div class="idMongo" ><%=adresse[i]._id %></div>
+        <div class="modifier"><a href="modifier/<%= adresse[i]._id %>">MOD</a></div>
+        <div class="detruire"><a href="detruire/<%= adresse[i]._id %>">DET</a></div>
+      </div> 
+    <% } %>
+</div>
+  <h2>Node.js, Express et MongoDB.</h2>
   <script type="text/javascript" src="modifier_adresse.js"></script>
 
 </body>

@@ -1,0 +1,57 @@
+@Roboto: 'Roboto', sans-serif;
+@SSPro: 'Source Sans Pro', sans-serif;
+
+*{
+	padding: 0;
+	font-family: @Roboto;
+}
+
+h2, h1{
+font-family: @SSPro;
+}
+.container-fluid{
+	width: 90%;
+}
+
+.nom,.prenom, .telephone, .idMongo, .detruire, .modifier{
+	padding: 10px;
+	border: 1px solid black;
+	flex-grow: 1;            -webkit-flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+
+.nom,.prenom{
+	width:100px;
+
+}
+.telephone,{
+	width:150px;
+}
+.idMongo{
+	width: 180px;
+}
+.detruire, .modifier{
+	width:80px;
+	text-align: center;
+}
+
+.table-row {
+  border-collapse: collapse;
+}
+
+.table-row.header {
+	text-align: center;
+}
+
+.table-row {
+  display: flex;           display: -webkit-flex;
+  flex-direction: row;     -webkit-flex-direction: row;
+  flex-grow: 0;            -webkit-flex-grow: 0;
+  flex-wrap: wrap;         -webkit-flex-wrap: wrap;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
