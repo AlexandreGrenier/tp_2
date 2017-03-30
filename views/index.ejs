@@ -14,8 +14,16 @@
     <input id="nom" type="text" placeholder="Nom" name="nom">
     <input id="prenom" type="text" placeholder="Prenom" name="prenom">
     <input id="telephone" type="text" placeholder="Telephone" name="telephone">
-    <input id="_id" value='' placeholder="_id" name="_id" >
+    <input id="_id" value='' placeholder="_id" name="_id" disabled="true">
     <button type="submit">Ajouter</button>
+  </form>
+  
+  <form id="formulaire2" action="/update" method="POST">
+    <input id="nom2" type="text" placeholder="Nom" name="nom">
+    <input id="prenom2" type="text" placeholder="Prenom" name="prenom">
+    <input id="telephone2" type="text" placeholder="Telephone" name="telephone">
+    <input id="_id2" value='' placeholder="_id" name="_id" >
+    <button type="submit">Modifier</button>
   </form>
 
   <div class="container-fluid">
