@@ -14,16 +14,8 @@
     <input id="nom" type="text" placeholder="Nom" name="nom">
     <input id="prenom" type="text" placeholder="Prenom" name="prenom">
     <input id="telephone" type="text" placeholder="Telephone" name="telephone">
-    <input id="_id" value='' placeholder="_id" name="_id" disabled="true">
+    <input id="_id" value='' placeholder="_id" name="_id" >
     <button type="submit">Ajouter</button>
-  </form>
-  
-  <form id="formulaire2" action="/update" method="POST">
-    <input id="nom2" type="text" placeholder="Nom" name="nom">
-    <input id="prenom2" type="text" placeholder="Prenom" name="prenom">
-    <input id="telephone2" type="text" placeholder="Telephone" name="telephone">
-    <input id="_id2" value='' placeholder="_id" name="_id" >
-    <button type="submit">Modifier</button>
   </form>
 
   <div class="container-fluid">
@@ -41,7 +33,7 @@
         <div class="prenom" contentEditable="true"><%= adresse[i].prenom %></div>
         <div class="telephone" contentEditable="true"><%= adresse[i].telephone %></div>
         <div class="idMongo" ><%=adresse[i]._id %></div>
-        <i class="modifier" onclick="modifier(this)" href="#">MOD</i>
+        <i class="modifier" onclick="modifier(this)" href="update/<%= adresse[i]._id %>">MOD</i>
         <div class="detruire"><a href="detruire/<%= adresse[i]._id %>">DET</a></div>
       </div> 
     <% } %>

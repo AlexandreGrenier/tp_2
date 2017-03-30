@@ -32,29 +32,35 @@ app.get('/',  (req, res) => {
 })
 
 app.post('/adresse',  (req, res) => {
-  db.collection('adresse').save(req.body, (err, result) => {
-      if (err) return console.log(err)
-      console.log('sauvegarder dans la BD')
-      res.redirect('/')
-    })
+
+  console.log(req.body._id);
+
+     var ajoutAdresse={};
+
+    if(req.body._id !="")
+    {
+      ajoutAdresse['_id']=ObjectID(req.body._id);
+    }
+
+    ajoutAdresse["nom"] = req.body.nom;
+    ajoutAdresse["prenom"] = req.body.prenom;
+    ajoutAdresse["telephone"] = req.body.telephone;
+
+
+        db.collection('adresse').save(ajoutAdresse, (err, result) => {
+        if (err) return console.log(err)
+        console.log('sauvegarder dans la BD')
+        res.redirect('/')
+      })
 })
 
 app.get('/detruire/:id', (req, res) => {
  var id = req.params.id
  console.log(id)
- db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}||{"_id":(req.params.id)}, (err, resultat) => {
+ db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
 if (err) return console.log(err)
  res.redirect('/')  // redirige vers la route qui affiche la collection
  })
-})
-
-app.post('/update',  (req, res) => {
-  
-  db.collection('adresse').update(req.body, (err, result) => {
-      if (err) return console.log(err)
-      console.log('sauvegarder dans la BD')
-      res.redirect('/')
-    })
 })
 
