@@ -4,26 +4,28 @@
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/modifier.js"></script>
   <title>Grenier TP_2</title>
 </head>
 <body>
   <h1>Grenier TP-2</h1>
 
-  <form action="/adresse" method="POST">
-    <input type="text" placeholder="Nom" name="nom">
-    <input type="text" placeholder="Prenom" name="prenom">
-    <input type="text" placeholder="Telephone" name="telephone">
-    <button type="submit">Submit</button>
+  <form id="formulaire" action="/adresse" method="POST">
+    <input id="nom" type="text" placeholder="Nom" name="nom">
+    <input id="prenom" type="text" placeholder="Prenom" name="prenom">
+    <input id="telephone" type="text" placeholder="Telephone" name="telephone">
+    <input id="_id" value='' placeholder="_id" name="_id" >
+    <button type="submit">Ajouter</button>
   </form>
-  
+
   <div class="container-fluid">
     <div class="table-row header">
-          <div class="nom">Nom</div>
-          <div class="prenom">Prénom</div>
-          <div class="telephone">Téléphone</div>
-          <div class="idMongo">_id</div>
-          <div class="modifier">MODIFIER</div>
-          <div class="detruire">DETRUIRE</div>
+          <div class="nomH">Nom</div>
+          <div class="prenomH">Prénom</div>
+          <div class="telephoneH">Téléphone</div>
+          <div class="idMongoH">_id</div>
+          <div class="modifierH">MODIFIER</div>
+          <div class="detruireH">DETRUIRE</div>
     </div>
     <% for(var i=0; i<adresse.length; i++) {%>
       <div class="table-row">
@@ -31,13 +33,11 @@
         <div class="prenom" contentEditable="true"><%= adresse[i].prenom %></div>
         <div class="telephone" contentEditable="true"><%= adresse[i].telephone %></div>
         <div class="idMongo" ><%=adresse[i]._id %></div>
-        <div class="modifier"><a href="modifier/<%= adresse[i]._id %>">MOD</a></div>
+        <i class="modifier" onclick="modifier(this)" href="#">MOD</i>
         <div class="detruire"><a href="detruire/<%= adresse[i]._id %>">DET</a></div>
       </div> 
     <% } %>
 </div>
   <h2>Node.js, Express et MongoDB.</h2>
-  <script type="text/javascript" src="modifier_adresse.js"></script>
-
 </body>
 </html>
